@@ -2,11 +2,11 @@ This is a quick explainer/docs for how ModDash makes use of NetworkTables v4 for
 ### `/moddash`
 | Entry Name | Type       | Describe                    |
 | ---------- | ---------- | --------------------------- |
-| `/md.tabs` | `String[]` | String array of all tab ids |
+| `/md.tabs` | `String[]` | String array of all tab NAMES |
 | Row 2      | Row 2      | Row 2                       |
 | Row 3      | Row 3      | Row 3                       |
 
-### `/moddash/{tabID}`
+### `/moddash/{tab}`
 | Entry Name        | Type       | Describe                         |
 | ----------------- | ---------- | -------------------------------- |
 | `/md.widgets`     | `String[]` | String array of all widget names |
