@@ -1,30 +1,21 @@
 package frc.qefrc.moddash.widgets;
 
-import frc.qefrc.moddash.ModDash;
-
 import java.util.function.Supplier;
-import lombok.Getter;
 
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.StringEntry;
 import edu.wpi.first.wpilibj.util.Color;
 
-public class ColorDisplayWidget implements ModDashWidget {
-    @Getter
-    public final String widgetName;
+/**
+ * Display any color on the dashboard. Default Dimensions are 1x1 (W x H)
+ */
+public class ColorDisplayWidget extends ModDashWidgetBase {
 
-    private final NetworkTable nt;
-    private final StringEntry displayName, colorToDisplay;
+    private final StringEntry colorToDisplay;
     private Supplier<Color> getCurrentColor;
-    private int[] position, dimensions;
 
     public ColorDisplayWidget(String name, NetworkTable table, Color initialValue) {
-        widgetName = name;
-
-        nt = table;
-
-        displayName = nt.getStringTopic(ModDash.prefixWith(ModDash.MD_DISPLAY_NAME_FIELD, false))
-                .getEntry(name);
+        super(name, table);
 
         colorToDisplay = nt.getStringTopic(name).getEntry(initialValue.toHexString());
     }
@@ -38,34 +29,5 @@ public class ColorDisplayWidget implements ModDashWidget {
 
     public void setColorSupplier(Supplier<Color> supplyColor) {
         getCurrentColor = supplyColor;
-    }
-
-    @Override
-    public int[] getHeightAndWidth() {
-        return dimensions;
-    }
-
-    @Override
-    public int[] getPosition() {
-        return position;
-    }
-
-    @Override
-    public void setPosition(int x, int y) {
-        position = new int[2];
-        position[0] = x;
-        position[1] = y;
-    }
-
-    @Override
-    public void setHeightAndWidth(int height, int width) {
-        dimensions = new int[2];
-        dimensions[0] = height;
-        dimensions[1] = width;
-    }
-
-    @Override
-    public void setDisplayName(String name) {
-        displayName.set(name);
     }
 }
