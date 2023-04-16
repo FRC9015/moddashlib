@@ -13,9 +13,11 @@ import edu.wpi.first.networktables.StringEntry;
 public class StringWidget extends ModDashWidgetBase {
     private final StringEntry dataString;
 
-    /** Create a new StringWidget. <b> USE {@link ModDashTab#get(String)}; Certain features will not work otherwise. </b> */
+    /** Create a new StringWidget. <b> USE {@link ModDashTab#getStringWidget(String, String)}; Certain features will not work otherwise. </b> */
     public StringWidget(String name, NetworkTable table, String initialValue) {
         super(name, table);
+
+        setType(table, this.getClass().getName());
 
         dataString = nt.getStringTopic(name).getEntry(initialValue);
 

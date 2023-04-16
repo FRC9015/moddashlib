@@ -20,6 +20,8 @@ public class BooleanDisplayWidget extends ModDashWidgetBase {
     public BooleanDisplayWidget(String name, NetworkTable table, Boolean initialValue) {
         super(name, table);
 
+        setType(table, this.getClass().getName());
+
         trueColor = nt.getStringTopic(ModDash.prefixWith("trueColor", false)).getEntry(Color.kGreen.toHexString());
         falseColor = nt.getStringTopic(ModDash.prefixWith("falseColor", false)).getEntry(Color.kRed.toHexString());
 
