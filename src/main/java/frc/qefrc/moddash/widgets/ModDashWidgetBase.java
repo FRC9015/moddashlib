@@ -55,4 +55,19 @@ public abstract class ModDashWidgetBase implements ModDashWidget {
     public void setDisplayName(String name) {
         displayName.set(name);
     }
+
+    /**
+     * Static helper to set the widget type property on NetworkTables
+     * @param table
+     * @param type
+     * @return
+     */
+    public static StringEntry setType(NetworkTable table, String type) {
+        String prefix = ModDash.prefixWith(ModDash.MD_WIDGET_TYPE_FIELD, false);
+
+        StringEntry entry = table.getStringTopic(prefix).getEntry("");
+        entry.set(type);
+
+        return entry;
+    }
 }
