@@ -84,7 +84,7 @@ public final class ModDash {
     }
 
     /* Helper Methods */
-    static String prefixWith(String toPrefix, boolean leadingSlash) {
+    public static String prefixWith(String toPrefix, boolean leadingSlash) {
         String prefixed = METADATA_PREFIX + toPrefix;
         return leadingSlash ? "/" + prefixed : prefixed;
     }
