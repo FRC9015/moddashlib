@@ -6,6 +6,12 @@ package frc.qefrc.moddash.widgets;
 public interface ModDashWidget {
 
     /**
+     *
+     * @return the immutable name of this widget in NetworkTables
+     */
+    public String getWidgetName();
+
+    /**
      * Override this method to run any periodic update logic if needed.
      */
     public default void update() {}

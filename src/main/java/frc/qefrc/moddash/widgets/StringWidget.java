@@ -3,6 +3,7 @@ package frc.qefrc.moddash.widgets;
 import frc.qefrc.moddash.ModDash;
 import frc.qefrc.moddash.ModDashTab;
 
+import lombok.Getter;
 import lombok.NonNull;
 
 import edu.wpi.first.networktables.NetworkTable;
@@ -12,7 +13,7 @@ import edu.wpi.first.networktables.StringEntry;
  * A simple string display widget. Default dimensions are 1 x 2 (H x W)
  */
 public class StringWidget implements ModDashWidget {
-    /** The unique name of this tab. */
+    @Getter
     public final String widgetName;
 
     private final NetworkTable nt;

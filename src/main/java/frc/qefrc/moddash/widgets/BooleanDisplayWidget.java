@@ -2,6 +2,8 @@ package frc.qefrc.moddash.widgets;
 
 import frc.qefrc.moddash.ModDash;
 
+import lombok.Getter;
+
 import edu.wpi.first.networktables.BooleanEntry;
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.StringEntry;
@@ -12,6 +14,7 @@ import edu.wpi.first.wpilibj.util.Color;
  * Colors are customizable.
  */
 public class BooleanDisplayWidget implements ModDashWidget {
+    @Getter
     public final String widgetName;
 
     private final NetworkTable nt;
