@@ -42,7 +42,7 @@ public final class ModDash {
         nt = NetworkTableInstance.getDefault().getTable(MODDASH_SUBTABLE_NAME);
 
         String[] tabsDefault = {};
-        tabsEntry = nt.getStringArrayTopic(prefixWith(MD_TABS_FIELD, true))
+        tabsEntry = nt.getStringArrayTopic(prefixWith(MD_TABS_FIELD, false))
                 .getEntry(tabsDefault, PubSubOption.keepDuplicates(false));
 
         tabInstances = new HashMap<String, ModDashTab>();
