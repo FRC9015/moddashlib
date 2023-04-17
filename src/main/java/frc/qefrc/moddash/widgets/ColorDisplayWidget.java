@@ -19,7 +19,7 @@ public class ColorDisplayWidget extends ModDashWidgetBase {
 
         setType(table, this.getClass().getName());
 
-        colorToDisplay = nt.getStringTopic(name).getEntry(initialValue.toHexString());
+        colorToDisplay = nt.getStringTopic("value").getEntry(initialValue.toHexString());
     }
 
     @Override

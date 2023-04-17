@@ -25,7 +25,7 @@ public class BooleanToggleWidget extends ModDashWidgetBase {
         trueColor = nt.getStringTopic(ModDash.prefixWith("trueColor", false)).getEntry(Color.kGreen.toHexString());
         falseColor = nt.getStringTopic(ModDash.prefixWith("falseColor", false)).getEntry(Color.kRed.toHexString());
 
-        dataBoolean = nt.getBooleanTopic(name).getEntry(initialValue);
+        dataBoolean = nt.getBooleanTopic("value").getEntry(initialValue);
     }
 
     public boolean getValue() {

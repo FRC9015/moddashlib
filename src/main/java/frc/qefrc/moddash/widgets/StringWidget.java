@@ -19,7 +19,7 @@ public class StringWidget extends ModDashWidgetBase {
 
         setType(table, this.getClass().getName());
 
-        dataString = nt.getStringTopic(name).getEntry(initialValue);
+        dataString = nt.getStringTopic("value").getEntry(initialValue);
 
         setHeightAndWidth(1, 2);
     }
