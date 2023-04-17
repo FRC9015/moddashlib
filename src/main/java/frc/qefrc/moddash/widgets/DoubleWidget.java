@@ -3,6 +3,9 @@ package frc.qefrc.moddash.widgets;
 import edu.wpi.first.networktables.DoubleEntry;
 import edu.wpi.first.networktables.NetworkTable;
 
+/**
+ * A simple double display widget. Default dimensions are 1 x 2 (H x W)
+ */
 public class DoubleWidget extends ModDashWidgetBase {
     private final DoubleEntry dataDouble;
 

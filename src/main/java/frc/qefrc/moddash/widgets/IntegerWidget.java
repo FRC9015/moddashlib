@@ -3,6 +3,9 @@ package frc.qefrc.moddash.widgets;
 import edu.wpi.first.networktables.IntegerEntry;
 import edu.wpi.first.networktables.NetworkTable;
 
+/**
+ * A simple integer display widget. Default dimensions are 1 x 2 (H x W)
+ */
 public class IntegerWidget extends ModDashWidgetBase {
     private final IntegerEntry dataInt;
 
