@@ -15,6 +15,7 @@ public class DoubleWidget extends ModDashWidgetBase {
         setType(table, this.getClass().getSimpleName());
 
         dataDouble = nt.getDoubleTopic("value").getEntry(initialValue);
+        setValue(initialValue);
     }
 
     /**

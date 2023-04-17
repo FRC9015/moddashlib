@@ -15,6 +15,7 @@ public class IntegerWidget extends ModDashWidgetBase {
         setType(table, this.getClass().getSimpleName());
 
         dataInt = nt.getIntegerTopic("value").getEntry(initialValue);
+        setValue(initialValue);
     }
 
     /**
