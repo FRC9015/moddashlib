@@ -4,6 +4,8 @@ import frc.qefrc.moddash.widgets.AlreadyExistsException;
 import frc.qefrc.moddash.widgets.BooleanDisplayWidget;
 import frc.qefrc.moddash.widgets.BooleanToggleWidget;
 import frc.qefrc.moddash.widgets.ColorDisplayWidget;
+import frc.qefrc.moddash.widgets.DoubleWidget;
+import frc.qefrc.moddash.widgets.IntegerWidget;
 import frc.qefrc.moddash.widgets.ModDashWidget;
 import frc.qefrc.moddash.widgets.StringWidget;
 
@@ -122,6 +124,48 @@ public class ModDashTab {
             return widget;
         } else if (widgetInstances.get(name) instanceof BooleanToggleWidget) {
             return (BooleanToggleWidget) widgetInstances.get(name);
+        } else {
+            // Throw an error if the widget is not null but is not an instance of StringWidget
+            throw new AlreadyExistsException(
+                    "Widget with name " + name + " in tab " + tabName + " already exists as a different type!");
+        }
+    }
+
+    /**
+     * Gets a widget if it exists, creating a new widget otherwise.
+     * @param name unique name of your widget
+     * @param initialValue initial value to pass in if the widget is instantiated.
+     * @return a new {@link IntegerWidget} instance!
+     * @throws AlreadyExistsException
+     */
+    public IntegerWidget getIntegerWidget(@NonNull String name, int initialValue) throws AlreadyExistsException {
+        if (widgetInstances.get(name) == null) {
+            val widget = new IntegerWidget(name, nt.getSubTable(name), initialValue);
+            addWidget(name, widget);
+            return widget;
+        } else if (widgetInstances.get(name) instanceof IntegerWidget) {
+            return (IntegerWidget) widgetInstances.get(name);
+        } else {
+            // Throw an error if the widget is not null but is not an instance of StringWidget
+            throw new AlreadyExistsException(
+                    "Widget with name " + name + " in tab " + tabName + " already exists as a different type!");
+        }
+    }
+
+    /**
+     * Gets a widget if it exists, creating a new widget otherwise.
+     * @param name unique name of your widget
+     * @param initialValue initial value to pass in if the widget is instantiated.
+     * @return a new {@link DoubleWidget} instance!
+     * @throws AlreadyExistsException
+     */
+    public DoubleWidget getDoubleWidget(@NonNull String name, int initialValue) throws AlreadyExistsException {
+        if (widgetInstances.get(name) == null) {
+            val widget = new DoubleWidget(name, nt.getSubTable(name), initialValue);
+            addWidget(name, widget);
+            return widget;
+        } else if (widgetInstances.get(name) instanceof DoubleWidget) {
+            return (DoubleWidget) widgetInstances.get(name);
         } else {
             // Throw an error if the widget is not null but is not an instance of StringWidget
             throw new AlreadyExistsException(
