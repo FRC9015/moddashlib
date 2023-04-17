@@ -12,7 +12,7 @@ public class DoubleWidget extends ModDashWidgetBase {
     public DoubleWidget(String name, NetworkTable table, int initialValue) {
         super(name, table);
 
-        setType(table, this.getClass().getName());
+        setType(table, this.getClass().getSimpleName());
 
         dataDouble = nt.getDoubleTopic("value").getEntry(initialValue);
     }

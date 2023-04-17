@@ -12,7 +12,7 @@ public class IntegerWidget extends ModDashWidgetBase {
     public IntegerWidget(String name, NetworkTable table, int initialValue) {
         super(name, table);
 
-        setType(table, this.getClass().getName());
+        setType(table, this.getClass().getSimpleName());
 
         dataInt = nt.getIntegerTopic("value").getEntry(initialValue);
     }

@@ -17,7 +17,7 @@ public class StringWidget extends ModDashWidgetBase {
     public StringWidget(String name, NetworkTable table, String initialValue) {
         super(name, table);
 
-        setType(table, this.getClass().getName());
+        setType(table, this.getClass().getSimpleName());
 
         dataString = nt.getStringTopic("value").getEntry(initialValue);
 
