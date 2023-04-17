@@ -63,7 +63,7 @@ public final class ModDash {
             tab = new ModDashTab(name, nt.getSubTable(name));
         }
         // Make sure networktables stays updated
-        tabsEntry.set((String[]) tabInstances.keySet().toArray());
+        tabsEntry.set(tabInstances.keySet().toArray(new String[0]));
         return tab;
     }
 
