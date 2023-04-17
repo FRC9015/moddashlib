@@ -161,6 +161,6 @@ public class ModDashTab {
         widget.update();
 
         // Only update the NT entry once the widget has been added and any initial updates have ran
-        widgetsEntry.set((String[]) currentWidgets.toArray());
+        widgetsEntry.set(currentWidgets.toArray(new String[0]));
     }
 }
