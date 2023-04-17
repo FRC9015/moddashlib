@@ -97,3 +97,8 @@ java {
 build {
     dependsOn javadoc
 }
+
+wrapper {
+    gradleVersion = "7.4"
+    distributionType = Wrapper.DistributionType.ALL
+}
