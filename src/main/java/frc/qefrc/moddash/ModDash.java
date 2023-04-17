@@ -61,6 +61,7 @@ public final class ModDash {
         ModDashTab tab = tabInstances.get(name);
         if (tab == null) {
             tab = new ModDashTab(name, nt.getSubTable(name));
+            tabInstances.put(name, tab);
         }
         // Make sure networktables stays updated
         tabsEntry.set(tabInstances.keySet().toArray(new String[0]));
