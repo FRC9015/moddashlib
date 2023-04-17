@@ -1,7 +1,5 @@
 import org.gradle.internal.os.OperatingSystem
 
-rootProject.name = 'moddash'
-
 pluginManagement {
     repositories {
         mavenLocal()
@@ -30,3 +28,5 @@ pluginManagement {
         }
     }
 }
+
+rootProject.name = 'moddash'
