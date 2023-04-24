@@ -55,7 +55,11 @@ public class ModDashTab {
     }
 
     /** Update the widgets in this tab. <b> This is automatically called by the {@link ModDash} class. </b> */
-    public void update() {}
+    public void update() {
+        for (ModDashWidget widget : widgetInstances.values()) {
+            widget.update();
+        }
+    }
 
     /** Set the display name of this tab. Defaults to the "name" passed to get this tab. */
     public void setDisplayName(String newName) {
