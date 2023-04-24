@@ -5,7 +5,7 @@ import frc.qefrc.moddash.ModDashTab;
 
 import edu.wpi.first.networktables.BooleanEntry;
 import edu.wpi.first.networktables.NetworkTable;
-import edu.wpi.first.networktables.StringEntry;
+import edu.wpi.first.networktables.StringPublisher;
 import edu.wpi.first.wpilibj.util.Color;
 
 /**
@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj.util.Color;
  * Colors are customizable.
  */
 public class BooleanToggleWidget extends ModDashWidgetBase {
-    private final StringEntry trueColor, falseColor;
+    private final StringPublisher trueColor, falseColor;
     private BooleanEntry dataBoolean;
 
     /** Create a new BooleanDisplayWidget. <b> USE {@link ModDashTab#get(String)}; Certain features will not work otherwise. </b> */
@@ -22,8 +22,10 @@ public class BooleanToggleWidget extends ModDashWidgetBase {
 
         setType(table, this.getClass().getSimpleName());
 
-        trueColor = nt.getStringTopic(ModDash.prefixWith("trueColor", false)).getEntry(Color.kGreen.toHexString());
-        falseColor = nt.getStringTopic(ModDash.prefixWith("falseColor", false)).getEntry(Color.kRed.toHexString());
+        trueColor = nt.getStringTopic(ModDash.prefixWith("trueColor", false)).publish();
+        falseColor = nt.getStringTopic(ModDash.prefixWith("falseColor", false)).publish();
+        setTrueColor(Color.kGreen);
+        setFalseColor(Color.kRed);
 
         dataBoolean = nt.getBooleanTopic("value").getEntry(initialValue);
         setValue(initialValue);

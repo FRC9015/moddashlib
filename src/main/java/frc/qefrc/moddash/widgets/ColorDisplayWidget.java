@@ -3,7 +3,7 @@ package frc.qefrc.moddash.widgets;
 import java.util.function.Supplier;
 
 import edu.wpi.first.networktables.NetworkTable;
-import edu.wpi.first.networktables.StringEntry;
+import edu.wpi.first.networktables.StringPublisher;
 import edu.wpi.first.wpilibj.util.Color;
 
 /**
@@ -11,16 +11,16 @@ import edu.wpi.first.wpilibj.util.Color;
  */
 public class ColorDisplayWidget extends ModDashWidgetBase {
 
-    private final StringEntry colorToDisplay;
+    private final StringPublisher colorToDisplay;
     private Supplier<Color> getCurrentColor;
 
     public ColorDisplayWidget(String name, NetworkTable table, Color initialValue) {
         super(name, table);
 
-        setType(table, this.getClass().getSimpleName());
+        setType(table, this.getClass().getSimpleName(), true);
 
-        colorToDisplay = nt.getStringTopic("value").getEntry(initialValue.toHexString());
-        colorToDisplay.set("#000000");
+        colorToDisplay = nt.getStringTopic("color").publish();
+        colorToDisplay.set(initialValue.toHexString());
     }
 
     @Override

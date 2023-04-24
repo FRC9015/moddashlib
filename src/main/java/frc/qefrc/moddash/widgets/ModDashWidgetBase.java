@@ -4,9 +4,10 @@ import frc.qefrc.moddash.ModDash;
 
 import lombok.Getter;
 
-import edu.wpi.first.networktables.IntegerArrayEntry;
+import edu.wpi.first.networktables.IntegerArrayPublisher;
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.StringEntry;
+import edu.wpi.first.networktables.StringPublisher;
 
 /**
  * Base class for creating widget types.
@@ -17,8 +18,8 @@ public abstract class ModDashWidgetBase implements ModDashWidget {
 
     protected final NetworkTable nt;
     private long[] position, dimensions;
-    private final StringEntry displayName;
-    private final IntegerArrayEntry positionEntry, dimensionsEntry;
+    private final StringPublisher displayName;
+    private final IntegerArrayPublisher positionEntry, dimensionsEntry;
 
     public ModDashWidgetBase(String name, NetworkTable table) {
         widgetName = name;
