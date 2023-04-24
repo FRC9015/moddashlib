@@ -6,7 +6,7 @@ import edu.wpi.first.networktables.NetworkTable;
 /**
  * A simple double display widget. Default dimensions are 1 x 2 (H x W)
  */
-public class DoubleWidget extends ModDashWidgetBase {
+public class DoubleWidget extends ModDashEditableWidgetBase {
     private final DoubleEntry dataDouble;
 
     public DoubleWidget(String name, NetworkTable table, int initialValue) {

@@ -12,7 +12,7 @@ import edu.wpi.first.wpilibj.util.Color;
  * Display a toggle widget on the dashboard. This differs from {@link BooleanDisplayWidget} in that it can be updated from the dashboard. Default Dimensions are 1x1 (W x H) <br></br>
  * Colors are customizable.
  */
-public class BooleanToggleWidget extends ModDashWidgetBase {
+public class BooleanToggleWidget extends ModDashEditableWidgetBase {
     private final StringPublisher trueColor, falseColor;
     private BooleanEntry dataBoolean;
 

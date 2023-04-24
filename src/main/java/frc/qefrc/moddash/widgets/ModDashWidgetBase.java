@@ -11,6 +11,7 @@ import edu.wpi.first.networktables.StringPublisher;
 
 /**
  * Base class for creating widget types.
+ * @see ModDashEditableWidgetBase
  */
 public abstract class ModDashWidgetBase implements ModDashWidget {
     @Getter

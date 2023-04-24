@@ -6,7 +6,7 @@ import edu.wpi.first.networktables.NetworkTable;
 /**
  * A simple integer display widget. Default dimensions are 1 x 2 (H x W)
  */
-public class IntegerWidget extends ModDashWidgetBase {
+public class IntegerWidget extends ModDashEditableWidgetBase {
     private final IntegerEntry dataInt;
 
     public IntegerWidget(String name, NetworkTable table, int initialValue) {

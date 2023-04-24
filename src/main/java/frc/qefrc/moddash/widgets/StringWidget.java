@@ -10,7 +10,7 @@ import edu.wpi.first.networktables.StringEntry;
 /**
  * A simple string display widget. Default dimensions are 1 x 2 (H x W)
  */
-public class StringWidget extends ModDashWidgetBase {
+public class StringWidget extends ModDashEditableWidgetBase {
     private final StringEntry dataString;
 
     /** Create a new StringWidget. <b> USE {@link ModDashTab#getStringWidget(String, String)}; Certain features will not work otherwise. </b> */
