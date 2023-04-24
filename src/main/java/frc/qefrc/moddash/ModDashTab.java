@@ -9,8 +9,6 @@ import frc.qefrc.moddash.widgets.IntegerWidget;
 import frc.qefrc.moddash.widgets.ModDashWidget;
 import frc.qefrc.moddash.widgets.StringWidget;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import lombok.NonNull;
@@ -19,8 +17,8 @@ import lombok.val;
 
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.PubSubOption;
-import edu.wpi.first.networktables.StringArrayEntry;
-import edu.wpi.first.networktables.StringEntry;
+import edu.wpi.first.networktables.StringArrayPublisher;
+import edu.wpi.first.networktables.StringPublisher;
 import edu.wpi.first.wpilibj.util.Color;
 
 /**
@@ -32,8 +30,8 @@ public class ModDashTab {
     public final String tabName;
 
     private final NetworkTable nt;
-    private final StringArrayEntry widgetsEntry;
-    private final StringEntry displayName;
+    private final StringArrayPublisher widgetsEntry;
+    private final StringPublisher displayName;
 
     private final Map<String, ModDashWidget> widgetInstances;
 
@@ -46,12 +44,12 @@ public class ModDashTab {
         tabName = name;
 
         nt = table;
-        String[] widgetsDefault = {};
-        widgetsEntry = nt.getStringArrayTopic(ModDash.prefixWith(ModDash.MD_TAB_WIDGETS_FIELD, false))
-                .getEntry(widgetsDefault, PubSubOption.keepDuplicates(false));
+        widgetsEntry = nt.getStringArrayTopic(ModDash.prefixWith(ModDash.MD_TAB_WIDGETS_FIELD))
+                .publish(PubSubOption.keepDuplicates(false));
 
-        displayName = nt.getStringTopic(ModDash.prefixWith(ModDash.MD_DISPLAY_NAME_FIELD, false))
-                .getEntry(name);
+        displayName = nt.getStringTopic(ModDash.prefixWith(ModDash.MD_DISPLAY_NAME_FIELD))
+                .publish();
+        displayName.set(name);
 
         widgetInstances = new HashMap<String, ModDashWidget>();
     }
@@ -197,14 +195,11 @@ public class ModDashTab {
 
     @Synchronized("widgetsEntry")
     private void addWidget(String name, ModDashWidget widget) {
-        ArrayList<String> currentWidgets = new ArrayList<String>(Arrays.asList(widgetsEntry.get()));
-        currentWidgets.add(name);
-
         widgetInstances.put(name, widget);
 
         widget.update();
 
         // Only update the NT entry once the widget has been added and any initial updates have ran
-        widgetsEntry.set(currentWidgets.toArray(new String[0]));
+        widgetsEntry.set(widgetInstances.keySet().toArray(new String[0]));
     }
 }

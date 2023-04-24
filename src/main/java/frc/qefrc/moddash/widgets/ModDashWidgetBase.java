@@ -36,14 +36,14 @@ public abstract class ModDashWidgetBase implements ModDashWidget {
         initPosition[0] = 0;
         initPosition[1] = 0;
         positionEntry = nt.getIntegerArrayTopic(ModDash.prefixWith(ModDash.MD_X_Y_POSITION_FIELD))
-                .getEntry(initPosition);
+                .publish();
         positionEntry.set(initPosition);
 
         long[] initDimensions = new long[2];
         initDimensions[0] = 0;
         initDimensions[1] = 0;
         dimensionsEntry = nt.getIntegerArrayTopic(ModDash.prefixWith(ModDash.MD_HEIGHT_WIDTH_FIELD))
-                .getEntry(initDimensions);
+                .publish();
         dimensionsEntry.set(initDimensions);
     }
 
