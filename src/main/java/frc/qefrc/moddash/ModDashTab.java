@@ -45,7 +45,7 @@ public class ModDashTab {
 
         nt = table;
         widgetsEntry = nt.getStringArrayTopic(ModDash.prefixWith(ModDash.MD_TAB_WIDGETS_FIELD))
-                .publish(PubSubOption.keepDuplicates(false));
+                .publish(PubSubOption.keepDuplicates(false), PubSubOption.disableRemote(true));
 
         displayName = nt.getStringTopic(ModDash.prefixWith(ModDash.MD_DISPLAY_NAME_FIELD))
                 .publish();

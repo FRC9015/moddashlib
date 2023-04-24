@@ -43,7 +43,7 @@ public final class ModDash {
 
         String[] tabsDefault = {};
         tabsEntry = nt.getStringArrayTopic(prefixWith(MD_TABS_FIELD))
-                .getEntry(tabsDefault, PubSubOption.keepDuplicates(false));
+                .getEntry(tabsDefault, PubSubOption.keepDuplicates(false), PubSubOption.disableRemote(true));
 
         tabInstances = new HashMap<String, ModDashTab>();
 
