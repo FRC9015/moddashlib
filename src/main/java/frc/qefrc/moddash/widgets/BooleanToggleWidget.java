@@ -22,8 +22,8 @@ public class BooleanToggleWidget extends ModDashWidgetBase {
 
         setType(table, this.getClass().getSimpleName());
 
-        trueColor = nt.getStringTopic(ModDash.prefixWith("trueColor", false)).publish();
-        falseColor = nt.getStringTopic(ModDash.prefixWith("falseColor", false)).publish();
+        trueColor = nt.getStringTopic(ModDash.prefixWith("trueColor")).publish();
+        falseColor = nt.getStringTopic(ModDash.prefixWith("falseColor")).publish();
         setTrueColor(Color.kGreen);
         setFalseColor(Color.kRed);
 

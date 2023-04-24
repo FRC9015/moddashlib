@@ -17,7 +17,8 @@ public class ColorDisplayWidget extends ModDashWidgetBase {
     public ColorDisplayWidget(String name, NetworkTable table, Color initialValue) {
         super(name, table);
 
-        setType(table, this.getClass().getSimpleName(), true);
+        setType(table, this.getClass().getSimpleName());
+        setHeightAndWidth(1, 1);
 
         colorToDisplay = nt.getStringTopic("color").publish();
         colorToDisplay.set(initialValue.toHexString());

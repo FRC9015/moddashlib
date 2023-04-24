@@ -42,7 +42,7 @@ public final class ModDash {
         nt = NetworkTableInstance.getDefault().getTable(MODDASH_SUBTABLE_NAME);
 
         String[] tabsDefault = {};
-        tabsEntry = nt.getStringArrayTopic(prefixWith(MD_TABS_FIELD, true))
+        tabsEntry = nt.getStringArrayTopic(prefixWith(MD_TABS_FIELD))
                 .getEntry(tabsDefault, PubSubOption.keepDuplicates(false));
 
         tabInstances = new HashMap<String, ModDashTab>();
@@ -85,8 +85,7 @@ public final class ModDash {
     }
 
     /* Helper Methods */
-    public static String prefixWith(String toPrefix, boolean leadingSlash) {
-        String prefixed = METADATA_PREFIX + toPrefix;
-        return leadingSlash ? "/" + prefixed : prefixed;
+    public static String prefixWith(String toPrefix) {
+        return METADATA_PREFIX + toPrefix;
     }
 }

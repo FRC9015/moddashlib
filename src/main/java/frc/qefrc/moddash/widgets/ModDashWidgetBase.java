@@ -26,7 +26,7 @@ public abstract class ModDashWidgetBase implements ModDashWidget {
 
         nt = table;
 
-        displayName = nt.getStringTopic(ModDash.prefixWith(ModDash.MD_DISPLAY_NAME_FIELD, false))
+        displayName = nt.getStringTopic(ModDash.prefixWith(ModDash.MD_DISPLAY_NAME_FIELD))
                 .getEntry(name);
         setDisplayName(name);
 
@@ -35,14 +35,14 @@ public abstract class ModDashWidgetBase implements ModDashWidget {
         long[] initPosition = new long[2];
         initPosition[0] = 0;
         initPosition[1] = 0;
-        positionEntry = nt.getIntegerArrayTopic(ModDash.prefixWith(ModDash.MD_X_Y_POSITION_FIELD, false))
+        positionEntry = nt.getIntegerArrayTopic(ModDash.prefixWith(ModDash.MD_X_Y_POSITION_FIELD))
                 .getEntry(initPosition);
         positionEntry.set(initPosition);
 
         long[] initDimensions = new long[2];
         initDimensions[0] = 0;
         initDimensions[1] = 0;
-        dimensionsEntry = nt.getIntegerArrayTopic(ModDash.prefixWith(ModDash.MD_HEIGHT_WIDTH_FIELD, false))
+        dimensionsEntry = nt.getIntegerArrayTopic(ModDash.prefixWith(ModDash.MD_HEIGHT_WIDTH_FIELD))
                 .getEntry(initDimensions);
         dimensionsEntry.set(initDimensions);
     }
@@ -91,7 +91,7 @@ public abstract class ModDashWidgetBase implements ModDashWidget {
      * @return
      */
     public static StringEntry setType(NetworkTable table, String type) {
-        String prefix = ModDash.prefixWith(ModDash.MD_WIDGET_TYPE_FIELD, false);
+        String prefix = ModDash.prefixWith(ModDash.MD_WIDGET_TYPE_FIELD);
 
         StringEntry entry = table.getStringTopic(prefix).getEntry("");
         entry.set(type);
