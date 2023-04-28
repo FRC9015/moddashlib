@@ -3,6 +3,7 @@ package frc.qefrc.moddash;
 import frc.qefrc.moddash.widgets.AlreadyExistsException;
 import frc.qefrc.moddash.widgets.BooleanDisplayWidget;
 import frc.qefrc.moddash.widgets.BooleanToggleWidget;
+import frc.qefrc.moddash.widgets.ChooserWidget;
 import frc.qefrc.moddash.widgets.ColorDisplayWidget;
 import frc.qefrc.moddash.widgets.DoubleWidget;
 import frc.qefrc.moddash.widgets.IntegerWidget;
@@ -19,6 +20,7 @@ import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.PubSubOption;
 import edu.wpi.first.networktables.StringArrayPublisher;
 import edu.wpi.first.networktables.StringPublisher;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.util.Color;
 
 /**
@@ -190,6 +192,21 @@ public class ModDashTab {
             return widget;
         } else if (widgetInstances.get(name) instanceof ColorDisplayWidget) {
             return (ColorDisplayWidget) widgetInstances.get(name);
+        } else {
+            // Throw an error if the widget is not null but is not an instance of StringWidget
+            throw new AlreadyExistsException(
+                    "Widget with name " + name + " in tab " + tabName + " already exists as a different type!");
+        }
+    }
+
+    public ChooserWidget getChooserWidget(@NonNull String name, @NonNull SendableChooser<?> chooser)
+            throws AlreadyExistsException {
+        if (widgetInstances.get(name) == null) {
+            val widget = new ChooserWidget(name, nt.getSubTable(name), chooser);
+            addWidget(name, widget);
+            return widget;
+        } else if (widgetInstances.get(name) instanceof ChooserWidget) {
+            return (ChooserWidget) widgetInstances.get(name);
         } else {
             // Throw an error if the widget is not null but is not an instance of StringWidget
             throw new AlreadyExistsException(
